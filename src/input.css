@@ -1,4 +1,99 @@
 @import "tailwindcss";
+
 @theme {
-    --color-brand-600: #F8DFC2;
+
+    --color-brand-50: #fcf7f0;
+    --color-brand-100: #FAF0E3;
+    --color-brand-600: #c8622e;
+    --color-brand-700: #a64c28;
+    --color-brand-900: #6c3422;
+
+    --color-accent-300: #F6B29A;
+    --color-accent-400: #f19878;
+    --color-accent-500: #e6754d;
+    --color-accent-600: #d25a30;
+    --color-accent-700: #b14924;
+    --color-accent-800: #923f22;
+    --color-accent-900: #7a3922;
+    --color-accent-950: #421b0d;
+
+    --color-ink: #18181B;
+    --color-ink-invert: #FFFFFF;
+    --color-muted: #71717A;
+    --color-muted-invert: #A1A1AA;
+    --color-line: #E4E4E7;
+    --color-line-invert: #27272A;
+    --color-surface: #FFFDF9;
+    --color-surface-alt: #F8F4EE;
+    --color-surface-dark: #18181B;
+    --color-surface-dark-alt: #27272A;
+
+    --font-display: "Montserrat", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+
+    --radius-card: 15px;
+    --radius-btn: 15px;
+    --radius-pill:999px
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-surface text-ink font-body antialiased;
+    }
+
+    h1,
+    h2,
+    h3 {
+        @apply font-display tracking-tight;
+    }
+
+    :focus-visible {
+        @apply outline-2 outline-offset-2 outline-brand-600;
+    }
+}
+
+
+@layer components {
+    .section {
+        @apply mx-auto w-full max-w-6xl px-5 py-20 lg:py-28;
+    }
+
+    .eyebrow {
+        @apply font-display text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50;
+    }
+
+    .btn-primary{
+        @apply bg-brand-600 text-white hover:bg-brand-700;
+    }
+    .btn-ghost{@apply border border-line text-ink hover:bg-surface-alt;}
+    .btn-lg{
+        @apply px-7 py-3.5 text-base;
+    }
+
+    .card{
+        @apply rounded-card border border-line bg-surface p-6;
+    }
+
+    .badge{
+        @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
+    }
+
+    .feature-card{
+        @apply rounded-card border border-line bg-surface p-6
+    }
+
+    .feature-name{
+        @apply mt-5 text-lg font-bold;
+    }
+    .feature-body{
+        @apply mt-2 text-muted
+    }
 }
