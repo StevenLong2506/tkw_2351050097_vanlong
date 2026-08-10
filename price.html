@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng giá</title>
+  <meta name="description" content="Giúp doanh nghiệp quản lý sản phẩm">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./dist/output.css">
+
+
+</head>
+
+<body>
+  <header class="sticky top-0 z-40 border-b border-line bg-surface/85 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4" aria-label="Điều hướng chính">
+
+      <!-- Logo dùng <a> vì nó ĐƯA NGƯỜI DÙNG ĐI ĐÂU ĐÓ -->
+      <a href="./index.html" class="flex items-center gap-2.5">
+        <span class="grid h-9 w-9 place-items-center rounded-lg bg-brand-600
+                     font-display text-lg font-extrabold text-white">V</span>
+        <span class="font-display text-xl font-extrabold">Vựa</span>
+      </a>
+
+      <!-- Menu desktop. Ẩn dưới lg — buổi 3 sẽ lo phần mobile. -->
+      <ul class="hidden items-center gap-8 text-sm font-medium lg:flex">
+        <li><a href="#tinh-nang" class="hover:text-brand-600">Tính năng</a></li>
+        <li><a href="#cach-hoat-dong" class="hover:text-brand-600">Cách hoạt động</a></li>
+        <li><a href="./price.html" class="hover:text-brand-600">Bảng giá</a></li>
+        <li><a href="#cau-hoi" class="hover:text-brand-600">Câu hỏi</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <a href="#cta" class="btn btn-primary hidden lg:inline-flex">Dùng thử 30 ngày</a>
+
+        <!-- Nút hamburger dùng <button> vì nó THỰC HIỆN MỘT HÀNH ĐỘNG.
+             Markup có sẵn từ buổi 1; buổi 4 mới gắn JavaScript cho chạy. -->
+        <button type="button" class="grid h-10 w-10 place-items-center rounded-pill border border-line lg:hidden"
+          aria-expanded="false" aria-controls="nav-mobile" aria-label="Mở menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu mobile: khung có sẵn, chưa mở được. Buổi 4 xử lý. -->
+    <div id="nav-mobile" class="hidden border-t border-line px-5 pb-6 pt-4 lg:hidden">
+      <ul class="flex flex-col gap-1 text-base font-medium">
+        <li><a href="#tinh-nang" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Tính năng</a></li>
+        <li><a href="#cach-hoat-dong" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Cách hoạt động</a></li>
+        <li><a href="#bang-gia" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Bảng giá</a></li>
+        <li><a href="#cau-hoi" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Câu hỏi</a></li>
+      </ul>
+      <a href="#cta" class="btn btn-primary btn-lg mt-4 w-full">Dùng thử 30 ngày</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="bang-gia" aria-labelledby="gia-title" class="mt-4 mx-5">
+      <div>
+        <p class="eyebrow">Bảng giá</p>
+        <h1 id="gia-title" class="mt-4 text-4xl font-extrabold sm:text-5xl lg:text-6xl">Trả theo quy mô vựa</h1>
+        <p class="mt-4 text-lg text-muted">Đổi gói bất cứ lúc nào. Mùa vắng hạ gói, mùa rộ nâng gói.</p>
+      </div>
+
+      <ul class="grid mt-14 items-stretch gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <li class="card flex flex-col h-full">
+          <h3 class="font-display text-lg font-bold md:text-2xl">Vựa nhỏ</h3>
+          <p class="mt-1 text-sm text-muted">Một bàn cân, dưới 30 phiếu mỗi ngày.</p>
+          <p class="mt-6 font-display text-4xl font-extrabold">390.000 ₫<span class="font-bold text-base">/tháng</span>
+          </p>
+          <ul class="mt-3">
+            <li class="price-content">2 tài khoản</li>
+            <li class="price-content">Phiếu cân không giới hạn</li>
+            <li class="price-content">Sổ lô hàng theo ngày</li>
+          </ul>
+          <a href="#cta">Chọn gói này</a>
+        </li>
+
+        <li class="card flex flex-col h-full">
+          <!-- Thẻ nổi bật: cần badge "Được chọn nhiều nhất" -->
+          <h3 class="price-title">Vựa vừa</h3>
+          <p class="mt-1 text-sm text-muted">Nhiều bàn cân, có công nợ thương lái.</p>
+          <p class="mt-6 font-display text-4xl font-extrabold">890.000 ₫<span class="font-bold text-base">/tháng</span>
+          </p>
+          <ul class="mt-3">
+            <li class="price-content">8 tài khoản</li>
+            <li class="price-content">Mọi thứ của gói Vựa nhỏ</li>
+            <li class="price-content">Sổ công nợ thương lái</li>
+            <li class="price-content">Gửi phiếu qua Zalo</li>
+          </ul>
+          <a href="#cta">Chọn gói này</a>
+        </li>
+
+        <li class="card flex flex-col h-full">
+          <h3 class="font-display text-lg font-bold">Chuỗi kho</h3>
+          <p class="mt-1 text-sm text-muted">Nhiều điểm cân, cần báo cáo gộp.</p>
+          <p class="mt-6 font-display text-4xl font-extrabold">1.990.000 ₫<span
+              class="font-bold text-base">/tháng</span></p>
+          <ul class="mt-3">
+            <li class="price-content">Không giới hạn tài khoản</li>
+            <li class="price-content">Mọi thứ của gói Vựa vừa</li>
+            <li class="price-content">Báo cáo gộp nhiều kho</li>
+          </ul>
+          <a href="#cta">Liên hệ tư vấn</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <div>
+        <a href="./index.html">
+          <span>V</span>
+          <span>Vựa</span>
+        </a>
+        <p>Phần mềm quản lý vựa nông sản cho chủ vựa ở Đồng bằng sông Cửu Long.</p>
+      </div>
+
+      <nav aria-labelledby="footer-sp">
+        <h2 id="footer-sp">Sản phẩm</h2>
+        <ul>
+          <li><a href="#tinh-nang">Tính năng</a></li>
+          <li><a href="#bang-gia">Bảng giá</a></li>
+          <li><a href="#cach-hoat-dong">Cách hoạt động</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="footer-ht">
+        <h2 id="footer-ht">Hỗ trợ</h2>
+        <ul>
+          <li><a href="#cau-hoi">Câu hỏi thường gặp</a></li>
+          <li><a href="tel:+842873001234">028 7300 1234</a></li>
+          <li><a href="mailto:hotro@vua.vn">hotro@vua.vn</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2>Địa chỉ</h2>
+        <address>
+          128 Nguyễn Văn Cừ, Phường An Hòa<br />
+          Cần Thơ
+        </address>
+      </div>
+    </div>
+
+    <p>© 2026 Vựa. Bài thực hành môn Thiết kế Web.</p>
+  </footer>
+</body>
+
+</html>

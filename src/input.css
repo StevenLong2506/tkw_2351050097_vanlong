@@ -33,7 +33,7 @@
 
     --radius-card: 15px;
     --radius-btn: 15px;
-    --radius-pill:999px
+    --radius-pill: 999px
 }
 
 @layer base {
@@ -70,30 +70,47 @@
         @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50;
     }
 
-    .btn-primary{
+    .btn-primary {
         @apply bg-brand-600 text-white hover:bg-brand-700;
     }
-    .btn-ghost{@apply border border-line text-ink hover:bg-surface-alt;}
-    .btn-lg{
+
+    .btn-ghost {
+        @apply border border-line text-ink hover:bg-surface-alt;
+    }
+
+    .btn-lg {
         @apply px-7 py-3.5 text-base;
     }
 
-    .card{
+    .card {
         @apply rounded-card border border-line bg-surface p-6;
     }
 
-    .badge{
+    .badge {
         @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold;
     }
 
-    .feature-card{
+    .feature-card {
         @apply rounded-card border border-line bg-surface p-6
     }
 
-    .feature-name{
+    .feature-name {
         @apply mt-5 text-lg font-bold;
     }
-    .feature-body{
+
+    .feature-body {
         @apply mt-2 text-muted
+    }
+
+    .ticket {
+        @apply relative rounded-card border border-line bg-surface p-6 shadow-xl;
+    }
+
+    .price-title{
+        @apply font-display text-lg font-bold;
+    }
+
+    .price-content{
+        @apply text-xl my-1;
     }
 }
