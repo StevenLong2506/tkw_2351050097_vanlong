@@ -39,7 +39,9 @@
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
     --tracking-tight: -0.025em;
+    --tracking-wider: 0.05em;
     --tracking-widest: 0.1em;
+    --leading-relaxed: 1.625;
     --radius-sm: 0.25rem;
     --radius-md: 0.375rem;
     --radius-lg: 0.5rem;
@@ -262,6 +264,9 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
+  .mt-12 {
+    margin-top: calc(var(--spacing) * 12);
+  }
   .mt-14 {
     margin-top: calc(var(--spacing) * 14);
   }
@@ -352,11 +357,20 @@
   .gap-3 {
     gap: calc(var(--spacing) * 3);
   }
+  .gap-4 {
+    gap: calc(var(--spacing) * 4);
+  }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
+  }
   .gap-6 {
     gap: calc(var(--spacing) * 6);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
+  }
+  .gap-10 {
+    gap: calc(var(--spacing) * 10);
   }
   .gap-14 {
     gap: calc(var(--spacing) * 14);
@@ -428,6 +442,9 @@
   .bg-brand-600 {
     background-color: var(--color-brand-600);
   }
+  .bg-surface {
+    background-color: var(--color-surface);
+  }
   .bg-surface-alt {
     background-color: var(--color-surface-alt);
   }
@@ -460,6 +477,9 @@
   }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
   }
   .pb-6 {
     padding-bottom: calc(var(--spacing) * 6);
@@ -506,6 +526,10 @@
     --tw-leading: 1.1;
     line-height: 1.1;
   }
+  .leading-relaxed {
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
@@ -532,6 +556,9 @@
   .text-brand-700 {
     color: var(--color-brand-700);
   }
+  .text-ink {
+    color: var(--color-ink);
+  }
   .text-muted {
     color: var(--color-muted);
   }
@@ -540,6 +567,9 @@
   }
   .uppercase {
     text-transform: uppercase;
+  }
+  .not-italic {
+    font-style: normal;
   }
   .backdrop-blur {
     --tw-backdrop-blur: blur(8px);
@@ -557,6 +587,10 @@
   @media (width >= 40rem) {
     .sm\:grid-cols-2 {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .sm\:text-4xl {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
     }
     .sm\:text-5xl {
       font-size: var(--text-5xl);
@@ -588,8 +622,14 @@
     .lg\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+    .lg\:grid-cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
     .lg\:gap-16 {
       gap: calc(var(--spacing) * 16);
+    }
+    .lg\:py-16 {
+      padding-block: calc(var(--spacing) * 16);
     }
     .lg\:py-28 {
       padding-block: calc(var(--spacing) * 28);
@@ -756,6 +796,111 @@
     margin-block: var(--spacing);
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
+  }
+  .step-card {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: var(--radius-card);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: var(--color-line);
+    background-color: var(--color-surface);
+    padding: calc(var(--spacing) * 6);
+  }
+  .step-num {
+    display: grid;
+    height: calc(var(--spacing) * 11);
+    width: calc(var(--spacing) * 11);
+    place-items: center;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-brand-50);
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
+    --tw-font-weight: var(--font-weight-extrabold);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-brand-600);
+  }
+  .step-name {
+    margin-top: calc(var(--spacing) * 5);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
+  }
+  .step-body {
+    margin-top: calc(var(--spacing) * 2);
+    --tw-leading: var(--leading-relaxed);
+    line-height: var(--leading-relaxed);
+    color: var(--color-muted);
+  }
+  .step-time {
+    margin-top: auto;
+    border-top-style: var(--tw-border-style);
+    border-top-width: 1px;
+    --tw-border-style: dashed;
+    border-style: dashed;
+    border-color: var(--color-line);
+    padding-top: calc(var(--spacing) * 4);
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    --tw-tracking: var(--tracking-widest);
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-brand-600);
+    text-transform: uppercase;
+  }
+  .footer-heading {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
+    --tw-tracking: var(--tracking-wider);
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-ink);
+    text-transform: uppercase;
+  }
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2.5);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+    color: var(--color-muted);
+  }
+  @media (hover: hover) {
+    .effect-footer:hover {
+      color: var(--color-brand-600);
+    }
+  }
+  .footer-social-btn {
+    display: grid;
+    height: calc(var(--spacing) * 9);
+    width: calc(var(--spacing) * 9);
+    place-items: center;
+    border-radius: calc(infinity * 1px);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: var(--color-line);
+    color: var(--color-muted);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    &:hover {
+      @media (hover: hover) {
+        border-color: var(--color-brand-600);
+      }
+    }
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-brand-600);
+      }
+    }
   }
 }
 @property --tw-space-y-reverse {
