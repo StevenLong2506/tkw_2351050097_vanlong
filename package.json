@@ -19,7 +19,7 @@
     "url": "https://github.com/StevenLong2506/tkw_2351050097_vanlong/issues"
   },
   "homepage": "https://github.com/StevenLong2506/tkw_2351050097_vanlong#readme",
-  "dependencies": {
+  "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",
     "tailwindcss": "^4.3.3"
   }

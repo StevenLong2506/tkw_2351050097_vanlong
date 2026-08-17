@@ -285,6 +285,9 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
+  .h-px {
+    height: 1px;
+  }
   .w-5 {
     width: calc(var(--spacing) * 5);
   }
@@ -376,6 +379,9 @@
   }
   .gap-y-6 {
     row-gap: calc(var(--spacing) * 6);
+  }
+  .overflow-hidden {
+    overflow: hidden;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -950,6 +956,11 @@
     color: var(--color-ink);
     text-transform: uppercase;
   }
+  .footer-nav-container {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
   .footer-nav {
     display: flex;
     flex-direction: column;
@@ -986,6 +997,41 @@
         color: var(--color-brand-600);
       }
     }
+  }
+  .to-top {
+    pointer-events: none;
+    position: fixed;
+    right: calc(var(--spacing) * 6);
+    bottom: calc(var(--spacing) * 6);
+    z-index: 40;
+    display: grid;
+    height: calc(var(--spacing) * 11);
+    width: calc(var(--spacing) * 11);
+    place-items: center;
+    border-radius: var(--radius-pill);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: var(--color-line);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    opacity: 0%;
+    --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    transition-property: opacity;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 200ms;
+    transition-duration: 200ms;
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-surface-dark-alt);
+    }
+    @media (prefers-color-scheme: dark) {
+      color: var(--color-ink-invert);
+    }
+  }
+  .to-top.is-visible {
+    pointer-events: auto;
+    opacity: 100%;
   }
 }
 @property --tw-space-y-reverse {
