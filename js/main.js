@@ -1,4 +1,5 @@
-import { initNav, initToTop } from "./nav.js";
+import { initHeaderOnScroll, initNav, initToTop } from "./nav.js";
 
 initNav();
 initToTop();
+initHeaderOnScroll();

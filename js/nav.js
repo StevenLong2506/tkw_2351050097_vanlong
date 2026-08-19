@@ -53,6 +53,26 @@ export function initNav() {
     })
 }
 
+export function initHeaderOnScroll() {
+    const header = document.querySelector("header");
+    const sentinel = document.getElementById("nav-sentinel");
+    if (!header || !sentinel) return;
+
+    // TODO 4 — dùng IntersectionObserver theo dõi #nav-sentinel.
+    // Sentinel còn trong màn hình  → đang ở đầu trang.
+    // Sentinel trôi mất            → đã cuộn: thêm "shadow-sm" và "is-scrolled"
+    //                                cho <header>.
+    //
+    // KHÔNG dùng window.addEventListener("scroll", ...): scroll bắn hàng trăm
+    // lần mỗi giây, observer chỉ báo đúng hai lần — lúc ra và lúc vào lại.
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            header.classList.toggle('shadow-sm', !entry.isIntersecting);
+        }
+    );
+    observer.observe(sentinel);
+}
+
 
 export function initToTop() {
     const btn = document.getElementById('nut-len-dau');
