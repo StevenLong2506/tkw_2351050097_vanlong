@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
+    <script>document.documentElement.classList.add('js');</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Thương mại điện tử</title>
-    <meta name="description" content="Giúp doanh nghiệp quản lý sản phẩm">
+    <title>TechNest — Cửa hàng điện tử &amp; gia dụng chính hãng</title>
+    <meta name="description"
+        content="Mua sắm điện tử, gia dụng chính hãng, giao hàng nhanh toàn quốc, đổi trả trong 30 ngày.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +18,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./dist/output.css">
 
-
+    <script>
+        (function () {
+            const saved = localStorage.getItem('theme');
+            const dark = saved ? saved === 'dark' : window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.classList.toggle('dark', dark);
+        })();
+    </script>
 </head>
 
 <body>
@@ -26,31 +34,35 @@
 
             <!-- Logo dùng <a> vì nó ĐƯA NGƯỜI DÙNG ĐI ĐÂU ĐÓ -->
             <a href="./index.html" class="flex items-center gap-2.5">
-                <span class="grid h-9 w-9 place-items-center rounded-lg bg-brand-600
-                     font-display text-lg font-extrabold text-white">M</span>
-                <span class="font-display text-xl font-extrabold">MacR</span>
+                <span class="brand-mark">T</span>
+                <span class="brand-name">TechNest</span>
             </a>
 
             <!-- Menu desktop. Ẩn dưới lg — buổi 3 sẽ lo phần mobile. -->
             <ul class="hidden items-center gap-8 text-sm font-medium lg:flex">
-                <li><a href="#tinh-nang" class="hover:text-brand-600">Tính năng</a></li>
-                <li><a href="#cach-hoat-dong" class="hover:text-brand-600">Cách hoạt động</a></li>
-                <li><a href="./price.html" class="hover:text-brand-600">Bảng giá</a></li>
-                <li><a href="#cau-hoi" class="hover:text-brand-600">Câu hỏi</a></li>
+                <li><a href="#san-pham" class="nav-link">Sản phẩm</a></li>
+                <li><a href="#uu-diem" class="nav-link">Vì sao chọn TechNest</a></li>
+                <li><a href="#cach-mua" class="nav-link">Cách mua hàng</a></li>
+                <li><a href="#slider-camnhan" class="nav-link">Cảm nhận</a></li>
+                <li><a href="./price.html" class="nav-link">Giá thành viên</a></li>
+                <li><a href="#cau-hoi" class="nav-link">Câu hỏi</a></li>
+                <li><a href="./contact.html" class="nav-link">Liên hệ</a></li>
             </ul>
 
+
+
             <div class="flex items-center gap-2">
-                <a href="#cta" class="btn btn-primary hidden lg:inline-flex">Dùng thử 30 ngày</a>
+                <button class="btn btn-ghost h-10 w-10 theme-toggle" id="nut-nen-toi" aria-pressed="false">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                    <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                </button>
+                <a href="#san-pham" class="btn btn-primary hidden lg:inline-flex">Mua sắm ngay</a>
 
                 <!-- Nút hamburger dùng <button> vì nó THỰC HIỆN MỘT HÀNH ĐỘNG.
              Markup có sẵn từ buổi 1; buổi 4 mới gắn JavaScript cho chạy. -->
-                <button type="button"
-                    class="grid h-10 w-10 place-items-center rounded-pill border border-line lg:hidden"
-                    aria-expanded="false" aria-controls="nav-mobile" aria-label="Mở menu">
-                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" aria-hidden="true">
-                        <path d="M4 7h16M4 12h16M4 17h16" />
-                    </svg>
+                <button type="button" class="btn btn-ghost w-10 h-10 lg:hidden" aria-expanded="false"
+                    aria-controls="nav-mobile" aria-label="Mở menu">
+                    <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </nav>
@@ -58,13 +70,21 @@
         <!-- Menu mobile: khung có sẵn, chưa mở được. Buổi 4 xử lý. -->
         <div id="nav-mobile" class="hidden border-t border-line px-5 pb-6 pt-4 lg:hidden">
             <ul class="flex flex-col gap-1 text-base font-medium">
-                <li><a href="#tinh-nang" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Tính năng</a></li>
-                <li><a href="#cach-hoat-dong" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Cách hoạt
-                        động</a></li>
-                <li><a href="#bang-gia" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Bảng giá</a></li>
-                <li><a href="#cau-hoi" class="block rounded-lg px-3 py-2.5 hover:bg-surface-alt">Câu hỏi</a></li>
+                <li><a href="#san-pham" class="nav-link-mobile">Sản phẩm</a></li>
+                <li><a href="#uu-diem" class="nav-link-mobile">Vì sao chọn
+                        TechNest</a></li>
+                <li><a href="#cach-mua" class="nav-link-mobile">Cách mua hàng</a>
+                </li>
+                <li><a href="#slider-camnhan" class="nav-link-mobile">Cảm nhận</a>
+                </li>
+                <li><a href="./price.html" class="nav-link-mobile">Giá thành viên</a>
+                </li>
+                <li><a href="#cau-hoi" class="nav-link-mobile">Câu hỏi</a>
+                </li>
+                <li><a href="./contact.html" class="nav-link-mobile">Liên hệ</a>
+                </li>
             </ul>
-            <a href="#cta" class="btn btn-primary btn-lg mt-4 w-full">Dùng thử 30 ngày</a>
+            <a href="#san-pham" class="btn btn-primary btn-lg mt-4 w-full">Mua sắm ngay</a>
         </div>
     </header>
 
@@ -72,201 +92,385 @@
         <section class="section grid items-center gap-14 lg:grid-cols-2 lg:gap-16" aria-labelledby="hero-title">
 
             <div>
-                <p class="eyebrow">Dành cho vựa nông sản</p>
+                <p class="eyebrow">Điện tử &amp; gia dụng chính hãng</p>
 
                 <!-- Đúng MỘT thẻ h1 trên toàn trang. Đây là tên của trang. -->
                 <h1 id="hero-title" class="mt-4 text-4xl font-extrabold leading-[1.1] sm:text-5xl lg:text-6xl">
-                    Cân xong là có phiếu.<br />
-                    Cuối ngày là có sổ.
+                    Đồ điện tử, gia dụng chính hãng.<br />
+                    Giao đến tận cửa nhà bạn.
                 </h1>
 
                 <p class="mt-6 max-w-lg text-lg text-muted">
-                    Vựa thay cuốn sổ tay bằng phiếu cân trên điện thoại. Ghi lô hàng lúc xe vào,
-                    đối chiếu công nợ thương lái lúc xe ra, không cần nhập lại vào máy tính.
+                    TechNest tổng hợp hàng nghìn sản phẩm điện tử và gia dụng từ các thương hiệu uy tín, kiểm hàng kỹ
+                    trước khi giao, đổi trả dễ dàng nếu bạn không hài lòng.
                 </p>
 
                 <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#cta" class="btn btn-primary btn-lg">Dùng thử 30 ngày</a>
-                    <a href="#cach-hoat-dong" class="btn btn-ghost btn-lg">Xem cách hoạt động</a>
+                    <a href="#san-pham" class="btn btn-primary btn-lg">Mua sắm ngay</a>
+                    <a href="#uu-diem" class="btn btn-ghost btn-lg">Xem ưu đãi hôm nay</a>
                 </div>
 
                 <p class="mt-5 text-sm text-muted">
-                    Không cần thẻ ngân hàng · Cài trong 10 phút · Hỗ trợ qua Zalo
+                    Miễn phí vận chuyển đơn từ 500.000 ₫ · Đổi trả trong 30 ngày · Bảo hành chính hãng
                 </p>
             </div>
 
-            <!-- Khối đặc trưng: tờ phiếu cân, mép dưới có răng cưa -->
+            <!-- Khối đặc trưng: phiếu đơn hàng, mép dưới có răng cưa -->
             <div class="ticket mx-auto max-w-sm">
                 <div class="flex items-start justify-between">
                     <div>
-                        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Phiếu cân</p>
-                        <p class="font-display text-lg font-bold">PC-2607-118</p>
+                        <p class="text-xs font-semibold uppercase tracking-widest text-muted">Đơn hàng</p>
+                        <p class="font-display text-lg font-bold">DH-2607-118</p>
                     </div>
-                    <span class="badge bg-brand-50 text-brand-700">Đã chốt</span>
+                    <span class="badge bg-brand-50 text-brand-700">Đã giao</span>
                 </div>
 
                 <dl class="mt-6 space-y-3 border-t border-dashed border-line pt-5 text-sm">
-                    <div class="flex justify-between">
-                        <dt class="text-muted">Thương lái</dt>
-                        <dd class="font-medium">Chú Bảy Rạch Giá</dd>
+                    <div class="ticket-row">
+                        <dt class="text-muted">Khách hàng</dt>
+                        <dd class="font-medium">Nguyễn Thị Hà</dd>
                     </div>
-                    <div class="flex justify-between">
-                        <dt class="text-muted">Mặt hàng</dt>
-                        <dd class="font-medium">Xoài cát Hòa Lộc</dd>
+                    <div class="ticket-row">
+                        <dt class="text-muted">Sản phẩm</dt>
+                        <dd class="font-medium">Nồi chiên không dầu Philips</dd>
                     </div>
-                    <div class="flex justify-between">
-                        <dt class="text-muted">Cân tổng / bì</dt>
-                        <dd class="font-medium">1.240 kg / 62 kg</dd>
+                    <div class="ticket-row">
+                        <dt class="text-muted">Số lượng</dt>
+                        <dd class="font-medium">1 sản phẩm</dd>
                     </div>
-                    <div class="flex justify-between">
-                        <dt class="text-muted">Đơn giá</dt>
-                        <dd class="font-medium">32.000 ₫/kg</dd>
+                    <div class="ticket-row">
+                        <dt class="text-muted">Vận chuyển</dt>
+                        <dd class="font-medium">Miễn phí</dd>
                     </div>
                 </dl>
 
                 <div class="mt-5 flex items-end justify-between gap-5 border-t border-dashed border-line pt-5">
                     <span class="text-sm text-muted">Thành tiền</span>
-                    <span class="font-display text-2xl font-extrabold text-brand-600">37.696.000 ₫</span>
+                    <span class="font-display text-2xl font-extrabold text-brand-600">2.290.000 ₫</span>
                 </div>
             </div>
         </section>
         <section class="border-y boder-line bg-surface-alt" aria-labelledby="doitac-title">
             <div class="mx-auto max-w-6xl px-5 py-12">
-                <h2 id="doitac-title" class="text-center text-sm font-medium text-muted">Được tin dùng bơi 600M+ khách
-                    hàng tại
-                    Việt Nam</h2>
+                <h2 id="doitac-title" class="text-center text-sm font-medium text-muted">Đồng hành cùng các đối tác
+                    giao hàng &amp; thanh toán hàng đầu Việt Nam</h2>
                 <ul
                     class="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 font-display text-lg font-bold text-muted">
-                    <li>Google</li>
-                    <li><i class="fa-brands fa-microsoft"></i>Microsoft</li>
-                    <li><i class="fa-brands fa-spotify"></i>Spotify</li>
-                    <li><i class="fa-brands fa-mailchimp"></i>Mailchimp</li>
-                    <li><i class="fa-brands fa-airbnb"></i>airbnb</li>
-                    <li class="uppercase ">uber</li>
+                    <li><i class="fa-solid fa-truck-fast"></i> GHN</li>
+                    <li><i class="fa-solid fa-truck-fast"></i> GHTK</li>
+                    <li><i class="fa-solid fa-truck-fast"></i> Viettel Post</li>
+                    <li><i class="fa-solid fa-wallet"></i> MoMo</li>
+                    <li><i class="fa-solid fa-wallet"></i> ZaloPay</li>
+                    <li class="uppercase">VNPay</li>
                 </ul>
             </div>
         </section>
 
-
-        <section class="mx-auto w-full max-w-6xl px-5 py-20 lg:py-28" id="tinh-nang" aria-labelledby="tinh-nang-title">
+        <section class="section" id="san-pham" aria-labelledby="san-pham-title">
             <div class="max-w-2xl">
-                <p class="font-display text-xs font-semibold uppercase text-brand-28">Tính năng</p>
-                <h2 id="tinh-nang-title" class="mt-4 text-3xl font-extrabold">Đúng ba việc mà vựa nào cũng phải làm mỗi
-                    ngày
-                </h2>
-                <p class="mt-4 text-lg text-muted">Không có tính năng thừa. Mỗi màn hình giải quyết một việc đang được
-                    làm bằng
-                    giấy.</p>
+                <p class="eyebrow">Sản phẩm nổi bật</p>
+                <h2 id="san-pham-title" class="mt-4 text-3xl font-extrabold">Được mua nhiều nhất tuần này</h2>
+                <p class="section-lead">Điện tử và gia dụng chính hãng, cập nhật giá tốt mỗi ngày.</p>
             </div>
 
-            <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <li class="feature-card">
-                    <h3 class="feature-name">Ghi phiếu cân tại bàn cân</h3>
-                    <p class="feature-body">Nhập cân tổng, trừ bì, chọn đơn giá. Phiếu in ra hoặc gửi Zalo cho thương
-                        lái ngay tại
-                        chỗ.</p>
+            <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <li class="product-card" data-reveal>
+                    <div class="product-image">
+                        <i class="fa-solid fa-headphones text-3xl"></i>
+                    </div>
+                    <div class="product-body">
+                        <span class="badge bg-brand-50 text-brand-700 self-start">-25%</span>
+                        <h3 class="product-name">Tai nghe không dây ProSound X2</h3>
+                        <p class="product-price">890.000 ₫<span class="product-price-old">1.190.000 ₫</span></p>
+                        <a href="#" class="btn btn-ghost btn-sm mt-auto">Thêm vào giỏ</a>
+                    </div>
                 </li>
-                <li class="feature-card">
-                    <h3 class="feature-name">Sổ lô hàng theo ngày</h3>
-                    <p class="feature-body">Toàn bộ lô vào — ra của một ngày nằm trên một màn hình. Lọc theo mặt hàng,
-                        thương lái,
-                        trạng thái.</p>
+                <li class="product-card" data-reveal>
+                    <div class="product-image">
+                        <i class="fa-solid fa-kitchen-set text-3xl"></i>
+                    </div>
+                    <div class="product-body">
+                        <span class="badge bg-brand-50 text-brand-700 self-start">Bán chạy</span>
+                        <h3 class="product-name">Nồi chiên không dầu AirFry 5L</h3>
+                        <p class="product-price">1.590.000 ₫</p>
+                        <a href="#" class="btn btn-ghost btn-sm mt-auto">Thêm vào giỏ</a>
+                    </div>
                 </li>
-                <li class="feature-card">
-                    <h3 class="feature-name">Công nợ không cần nhớ</h3>
-                    <p class="feature-body">Mỗi thương lái có một dòng số dư. Trả tiền đợt nào ghi đợt đó, cuối tháng
-                        đối chiếu
-                        bằng
-                        một màn hình.</p>
+                <li class="product-card" data-reveal>
+                    <div class="product-image">
+                        <i class="fa-solid fa-volume-high text-3xl"></i>
+                    </div>
+                    <div class="product-body">
+                        <span class="badge bg-brand-50 text-brand-700 self-start">-25%</span>
+                        <h3 class="product-name">Loa bluetooth BoomBox Mini</h3>
+                        <p class="product-price">590.000 ₫<span class="product-price-old">790.000 ₫</span></p>
+                        <a href="#" class="btn btn-ghost btn-sm mt-auto">Thêm vào giỏ</a>
+                    </div>
+                </li>
+                <li class="product-card" data-reveal>
+                    <div class="product-image">
+                        <i class="fa-solid fa-broom text-3xl"></i>
+                    </div>
+                    <div class="product-body">
+                        <span class="badge bg-brand-50 text-brand-700 self-start">Mới</span>
+                        <h3 class="product-name">Máy hút bụi cầm tay CleanPro</h3>
+                        <p class="product-price">2.290.000 ₫</p>
+                        <a href="#" class="btn btn-ghost btn-sm mt-auto">Thêm vào giỏ</a>
+                    </div>
                 </li>
             </ul>
         </section>
 
-        <section id="cach-hoat-dong" class="border-t border-line bg-surface-alt" aria-labelledby="cach-title">
+        <section class="section" id="uu-diem" aria-labelledby="uu-diem-title">
+            <div class="max-w-2xl">
+                <p class="eyebrow">Vì sao chọn TechNest</p>
+                <h2 id="uu-diem-title" class="mt-4 text-3xl font-extrabold">
+                    Mua sắm yên tâm, giao hàng nhanh chóng
+                </h2>
+                <p class="section-lead">Không chỉ bán hàng, chúng tôi cam kết trải nghiệm mua sắm trọn
+                    vẹn từ lúc đặt đến khi nhận.</p>
+            </div>
+
+            <ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <li class="feature-card" data-reveal>
+                    <h3 class="feature-name">Giao hàng nhanh trong ngày</h3>
+                    <p class="feature-body">Đơn nội thành đặt trước 12h nhận hàng ngay trong ngày. Theo dõi hành
+                        trình đơn hàng trực tiếp trên điện thoại.</p>
+                </li>
+                <li class="feature-card" data-reveal>
+                    <h3 class="feature-name">Bảo hành chính hãng toàn quốc</h3>
+                    <p class="feature-body">Mọi sản phẩm có tem chính hãng, được bảo hành tại hơn 200 trung tâm
+                        ủy quyền trên cả nước.</p>
+                </li>
+                <li class="feature-card" data-reveal>
+                    <h3 class="feature-name">Đổi trả trong 30 ngày</h3>
+                    <p class="feature-body">Không đúng ý cứ đổi trả, hoàn tiền trong 3 ngày làm việc, không cần
+                        giải thích lý do.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="cach-mua" class="border-t border-line bg-surface-alt" aria-labelledby="cach-title">
             <div class="section">
-                <p class="eyebrow">Cách hoạt động</p>
-                <h2 id="cach-title" class="mt-4 text-3xl font-extrabold sm:text-4xl">Một xe vào vựa, ba thao tác</h2>
-                <p class="mt-4 text-lg text-muted">
-                    Quy trình tinh gọn tối đa để nhân viên tại bàn cân thao tác nhanh trong giờ cao điểm.
+                <p class="eyebrow">Cách mua hàng</p>
+                <h2 id="cach-title" class="mt-4 text-3xl font-extrabold sm:text-4xl">Mua hàng chỉ với 3 bước</h2>
+                <p class="section-lead">
+                    Quy trình đặt hàng tinh gọn, từ lúc chọn sản phẩm đến lúc nhận hàng tận cửa.
                 </p>
 
                 <ol class="mt-14 grid items-stretch gap-6 md:grid-cols-3">
-                    <li class="step-card">
+                    <li class="step-card" data-reveal>
                         <div>
                             <span class="step-num">01</span>
-                            <h3 class="step-name">Xe lên bàn cân</h3>
-                            <p class="step-body">Chọn thương lái có sẵn trong danh bạ, nhập cân tổng. Khách mới thì thêm
-                                ngay trên màn hình đó.
+                            <h3 class="step-name">Chọn sản phẩm</h3>
+                            <p class="step-body">Duyệt danh mục, so sánh thông số và đọc đánh giá thật từ
+                                người mua trước.
                             </p>
                         </div>
-                        <p class="step-time">Thời gian: ~15 giây</p>
+                        <p class="step-time">Thời gian: ~1 phút</p>
                     </li>
-                    <li class="step-card">
+                    <li class="step-card" data-reveal>
                         <div>
                             <span class="step-num">02</span>
-                            <h3 class="step-name">Trừ bì, chốt giá</h3>
-                            <p class="step-body">Nhập số bì và đơn giá hôm đó. Thành tiền tính tự động, không bấm máy
-                                tính
-                                tay.</p>
+                            <h3 class="step-name">Thanh toán an toàn</h3>
+                            <p class="step-body">Trả tiền mặt khi nhận hàng, chuyển khoản hoặc ví điện tử,
+                                bảo mật theo chuẩn quốc tế.</p>
                         </div>
-                        <p class="step-time">Thời gian: ~20 giây</p>
+                        <p class="step-time">Thời gian: ~30 giây</p>
                     </li>
-                    <li class="step-card">
+                    <li class="step-card" data-reveal>
                         <div>
                             <span class="step-num">03</span>
-                            <h3 class="step-name">Chốt phiếu</h3>
-                            <p class="step-body">Phiếu vào sổ ngày và vào công nợ của thương lái cùng lúc. Không phải
-                                ghi
-                                hai lần.</p>
+                            <h3 class="step-name">Nhận hàng tận nơi</h3>
+                            <p class="step-body">Đơn được đóng gói cẩn thận và giao đến đúng địa chỉ, có thể
+                                hẹn giờ nhận hàng.</p>
                         </div>
-                        <p class="step-time">Thời gian: ~5 giây</p>
+                        <p class="step-time">Thời gian: 1-3 ngày</p>
                     </li>
                 </ol>
             </div>
+        </section>
+
+        <section id="slider-camnhan" class="section" aria-labelledby="camnhan-title">
+            <div class="max-w-2xl">
+                <p class="eyebrow">Khách hàng nói gì</p>
+                <h2 id="camnhan-title" class="mt-4 text-3xl font-extrabold">Cảm nhận từ người đã mua</h2>
+            </div>
+
+            <div class="relative mt-14" data-reveal>
+                <div class="overflow-hidden rounded-card border border-line bg-surface">
+                    <div data-slider-track class="flex transition-transform duration-500 ease-out">
+                        <div data-slide class="slider-slide">
+                            <p class="slider-quote">“Đặt nồi chiên không dầu buổi sáng, chiều đã
+                                nhận hàng. Đóng gói cẩn thận, đúng y hình.”</p>
+                            <p class="slider-author">Lan Anh</p>
+                            <p class="text-sm text-muted">Quận 7, TP.HCM</p>
+                        </div>
+                        <div data-slide class="slider-slide">
+                            <p class="slider-quote">“Tai nghe lỗi được đổi mới trong 2 ngày, không
+                                hỏi nhiều. Dịch vụ hậu mãi rất ổn.”</p>
+                            <p class="slider-author">Minh Khoa</p>
+                            <p class="text-sm text-muted">Cần Thơ</p>
+                        </div>
+                        <div data-slide class="slider-slide">
+                            <p class="slider-quote">“Giá cạnh tranh mà vẫn có bảo hành chính hãng,
+                                mình mua loa và máy hút bụi đều ưng.”</p>
+                            <p class="slider-author">Thu Hà</p>
+                            <p class="text-sm text-muted">Hà Nội</p>
+                        </div>
+                        <div data-slide class="slider-slide">
+                            <p class="slider-quote">“Là thành viên Vàng nên free ship suốt, tính
+                                ra
+                                tiết kiệm được kha khá mỗi tháng.”</p>
+                            <p class="slider-author">Đức Anh</p>
+                            <p class="text-sm text-muted">Đà Nẵng</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex items-center justify-center gap-4">
+                    <button type="button" data-slider-prev class="btn-icon" aria-label="Cảm nhận trước">
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div data-slider-dots class="flex items-center gap-2"></div>
+                    <button type="button" data-slider-next class="btn-icon" aria-label="Cảm nhận sau">
+                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="cau-hoi" class="border-t border-line bg-surface-alt" aria-labelledby="faq-title">
+            <div class="section">
+                <div class="max-w-2xl">
+                    <p class="eyebrow">Câu hỏi thường gặp</p>
+                    <h2 id="faq-title" class="mt-4 text-3xl font-extrabold">Còn thắc mắc gì không?</h2>
+                    <p class="section-lead">Những câu khách hàng hay hỏi nhất trước khi đặt hàng tại TechNest
+                    </p>
+                </div>
+
+                <div class="mt-10 space-y-3" data-reveal>
+                    <div class="faq-item">
+                        <h3>
+                            <button type="button" id="faq-t1" data-faq-trigger aria-expanded="false"
+                                aria-controls="faq-p1" class="faq-question">
+                                <span>Thời gian giao hàng mất bao lâu?</span>
+                                <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div id="faq-p1" class="faq-answer" role="region" aria-labelledby="faq-t1" hidden>
+                            <p>Đơn nội thành đặt trước 12h nhận hàng ngay trong ngày. Các tỉnh thành khác giao trong 1-3
+                                ngày
+                                làm việc.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button type="button" id="faq-t2" data-faq-trigger aria-expanded="false"
+                                aria-controls="faq-p2" class="faq-question">
+                                <span>Tôi có thể đổi trả sản phẩm không?</span>
+                                <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div id="faq-p2" role="region" aria-labelledby="faq-t2" hidden class="faq-answer">
+                            <p>Có. TechNest hỗ trợ đổi trả miễn phí trong 30 ngày, hoàn tiền trong 3 ngày làm việc,
+                                không
+                                cần
+                                giải thích lý do.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button type="button" id="faq-t3" data-faq-trigger aria-expanded="false"
+                                aria-controls="faq-p3" class="faq-question">
+                                <span>TechNest có những hình thức thanh toán nào?</span>
+                                <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div id="faq-p3" role="region" aria-labelledby="faq-t3" hidden class="faq-answer">
+                            <p>Bạn có thể trả tiền mặt khi nhận hàng (COD), chuyển khoản ngân hàng, hoặc thanh toán qua
+                                MoMo,
+                                ZaloPay, VNPay.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button type="button" id="faq-t4" data-faq-trigger aria-expanded="false"
+                                aria-controls="faq-p4" class="faq-question">
+                                <span>Sản phẩm có được bảo hành chính hãng không?</span>
+                                <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div id="faq-p4" role="region" aria-labelledby="faq-t4" hidden class="faq-answer">
+                            <p>Tất cả sản phẩm đều có tem chính hãng, được bảo hành tại hơn 200 trung tâm ủy quyền trên
+                                toàn
+                                quốc.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3>
+                            <button type="button" id="faq-t5" data-faq-trigger aria-expanded="false"
+                                aria-controls="faq-p5" class="faq-question">
+                                <span>Làm sao để đăng ký thành viên?</span>
+                                <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+                            </button>
+                        </h3>
+                        <div id="faq-p5" role="region" aria-labelledby="faq-t5" hidden class="faq-answer">
+                            <p>Vào trang <a href="./price.html" class="font-semibold text-brand-600">Giá thành viên</a> và
+                                đăng
+                                ký
+                                hạng Bạc miễn phí để bắt đầu tích điểm từ đơn hàng đầu tiên.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
 
     <footer class="border-t border-line bg-surface">
         <div class="mx-auto w-full max-w-6xl px-5 py-12 lg:py-16">
             <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="flex flex-col gap-4">
+                <div class="footer-nav-container">
                     <a href="./index.html" class="flex items-center gap-3">
                         <span
-                            class="grid h-9 w-9 place-items-center rounded-lg bg-brand-600 font-display text-lg font-extrabold text-white">V</span>
-                        <span class="font-display text-xl font-extrabold">Vựa</span>
+                            class="brand-mark">T</span>
+                        <span class="brand-name">TechNest</span>
                     </a>
-                    <p class="text-sm leading-relaxed text-muted">Phần mềm quản lý vựa nông sản cho chủ vựa ở Đồng bằng
-                        sông Cửu Long.</p>
+                    <p class="text-sm leading-relaxed text-muted">Cửa hàng điện tử và gia dụng chính hãng, giao
+                        hàng toàn quốc.</p>
                 </div>
 
-                <nav class="flex flex-col gap-4" aria-labelledby="footer-sp">
+                <nav class=".footer-nav-container" aria-labelledby="footer-sp">
                     <h2 class="footer-heading" id="footer-sp">Sản phẩm</h2>
                     <ul class="footer-nav">
-                        <li><a href="#tinh-nang" class="effect-footer">Tính năng</a></li>
-                        <li><a href="#bang-gia" class="effect-footer">Bảng giá</a></li>
-                        <li><a href="#cach-hoat-dong" class="effect-footer">Cách hoạt động</a></li>
+                        <li><a href="./index.html#san-pham" class="effect-footer">Sản phẩm nổi bật</a></li>
+                        <li><a href="./price.html" class="effect-footer">Thành viên</a></li>
+                        <li><a href="./index.html#uu-diem" class="effect-footer">Vì sao chọn TechNest</a></li>
                     </ul>
                 </nav>
 
-                <nav class="flex flex-col gap-4" aria-labelledby="footer-ht">
+                <nav class=".footer-nav-container" aria-labelledby="footer-ht">
                     <h2 class="footer-heading" id="footer-ht">Hỗ trợ</h2>
                     <ul class="footer-nav">
-                        <li><a href="tel:+842873001234" class="font-semibold text-ink">028 7300 1234</a></li>
-                        <li><a href="mailto:hotro@vua.vn" class="effect-footer">hotro@vua.vn</a></li>
+                        <li><a href="tel:+842873001234" class="info-value">028 7300 1234</a></li>
+                        <li><a href="mailto:hotro@technest.vn" class="effect-footer">hotro@technest.vn</a></li>
                     </ul>
                 </nav>
 
-                <div mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-6 text-xs text-muted
-                    sm:flex-row>
+                <div class="flex flex-col gap-3 text-xs text-muted">
                     <h2 class="footer-heading">Địa chỉ</h2>
                     <address class="footer-nav not-italic">
-                        128 Nguyễn Văn Cừ, Phường An Hòa<br />
-                        Cần Thơ
+                        97 Võ Văn Tần TP.HCM
                     </address>
                 </div>
 
             </div>
-            <p class="flex justify-center text-muted mt-8">© 2026 Vựa. Bài thực hành môn Thiết kế Web.</p>
+            <p class="flex justify-center text-muted mt-8">© 2026 TechNest. Bài thực hành môn Thiết kế Web.</p>
         </div>
 
     </footer>

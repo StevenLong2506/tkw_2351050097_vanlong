@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
 
     --color-brand-50: #fcf7f0;
@@ -37,6 +39,21 @@
 }
 
 @layer base {
+
+    /* Ghi đè token màu khi <html> có class .dark. Nằm trong @layer base là đủ
+       thắng @layer theme (nơi @theme xuất --color-surface...) vì thứ tự layer
+       đã khai báo là theme, base, components, utilities — base thắng theme
+       bất kể specificity. Nhờ vậy mọi class dùng token này (bg-surface,
+       text-ink, border-line, bg-surface-alt, text-muted...) tự đổi màu,
+       không cần sửa từng thẻ HTML. */
+    .dark {
+        --color-surface: var(--color-surface-dark);
+        --color-surface-alt: var(--color-surface-dark-alt);
+        --color-ink: var(--color-ink-invert);
+        --color-muted: var(--color-muted-invert);
+        --color-line: var(--color-line-invert);
+    }
+
     html {
         scroll-behavior: smooth;
     }
@@ -66,6 +83,18 @@
         @apply font-display text-xs font-semibold uppercase tracking-[0.18em] text-brand-600;
     }
 
+    .section-lead {
+        @apply mt-4 text-lg text-muted;
+    }
+
+    .nav-link {
+        @apply hover:text-brand-600;
+    }
+
+    .nav-link-mobile {
+        @apply block rounded-lg px-3 py-2.5 hover:bg-surface-alt;
+    }
+
     .btn {
         @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-150 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none;
     }
@@ -87,11 +116,11 @@
     }
 
     .btn-sm {
-        @apply px-3.5 py-1.5 text-xs;
+        @apply px-3.5 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm;
     }
 
     .btn-lg {
-        @apply px-7 py-3.5 text-base;
+        @apply px-5 py-2.5 text-sm sm:px-6 sm:py-3 sm:text-base lg:px-8 lg:py-3.5 lg:text-lg;
     }
 
     .btn-icon {
@@ -127,6 +156,34 @@
         @apply relative rounded-card border border-line bg-surface p-6 shadow-xl;
     }
 
+    .ticket-row {
+        @apply flex justify-between;
+    }
+
+    .product-card {
+        @apply flex flex-col overflow-hidden rounded-card border border-line bg-surface;
+    }
+
+    .product-image {
+        @apply grid aspect-square w-full place-items-center bg-surface-alt text-brand-600;
+    }
+
+    .product-body {
+        @apply flex flex-1 flex-col items-start gap-3 p-5;
+    }
+
+    .product-name {
+        @apply font-semibold text-ink;
+    }
+
+    .product-price {
+        @apply flex items-center gap-2 font-display text-lg font-extrabold text-brand-600;
+    }
+
+    .product-price-old {
+        @apply text-sm font-medium text-muted line-through;
+    }
+
     .price-title {
         @apply font-display text-xl font-bold md:text-3xl;
     }
@@ -145,6 +202,10 @@
 
     .price-content {
         @apply text-xl my-1;
+    }
+
+    .price-perks {
+        @apply mt-3 flex-1;
     }
 
     .step-card {
@@ -171,6 +232,18 @@
         @apply font-display text-sm font-semibold uppercase tracking-wider text-ink;
     }
 
+    .brand-mark {
+        @apply grid h-9 w-9 place-items-center rounded-lg bg-brand-600 font-display text-lg font-extrabold text-white;
+    }
+
+    .brand-name {
+        @apply font-display text-xl font-extrabold;
+    }
+
+    .info-value {
+        @apply font-semibold text-ink;
+    }
+
     .footer-nav-container {
         @apply flex flex-col gap-4;
     }
@@ -194,4 +267,90 @@
     .to-top.is-visible {
         @apply pointer-events-auto opacity-100;
     }
+
+    .faq-item {
+        @apply overflow-hidden rounded-card border border-line bg-surface;
+    }
+
+    .faq-question {
+        @apply flex w-full items-center justify-between gap-4 p-5 text-left font-semibold text-ink;
+    }
+
+    .faq-question .faq-icon {
+        @apply text-muted transition-transform duration-200;
+    }
+
+    .faq-question[aria-expanded="true"] .faq-icon {
+        @apply rotate-180 text-brand-600;
+    }
+
+    .faq-answer {
+        @apply px-5 pb-5 text-muted leading-relaxed;
+    }
+
+    .field-label {
+        @apply mb-1.5 block text-sm font-medium text-ink;
+    }
+
+    .field-input {
+        @apply w-full rounded-btn border border-line bg-surface px-4 py-2.5 text-sm text-ink transition-colors focus:border-brand-600 focus:outline-none;
+    }
+
+    .field-hint {
+        @apply mt-1.5 text-xs text-muted;
+    }
+
+    .field-error {
+        @apply mt-1.5 text-xs font-medium text-red-600 empty:hidden;
+    }
+
+    .field-required {
+        @apply text-red-600;
+    }
+
+    .slider-dot {
+        @apply h-2.5 w-2.5 rounded-full bg-line transition-all;
+    }
+
+    .slider-dot[aria-current="true"] {
+        @apply w-6 bg-brand-600;
+    }
+
+    .slider-slide {
+        @apply w-full shrink-0 p-8 sm:p-12;
+    }
+
+    .slider-quote {
+        @apply text-lg leading-relaxed sm:text-xl;
+    }
+
+    .slider-author {
+        @apply mt-6 font-display font-bold;
+    }
+
+    .js[data-reveal] {
+        @apply translate-y-4 opacity-0;
+    }
+
+    @media(prefers-reduced-motion: no-preference) {
+        .js[data-reveal] {
+            @apply transition-all duration-700 ease-out;
+        }
+    }
+
+    .js[data-reveal].is-visible {
+        @apply translate-y-0 opacity-100;
+    }
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .fa-moon {
+    display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .fa-sun {
+    display: inline-block;
 }
