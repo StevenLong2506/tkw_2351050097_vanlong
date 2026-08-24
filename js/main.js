@@ -1,3 +1,4 @@
+import { initApp } from "./app.js";
 import { initFaq } from "./faq.js";
 import { initHeaderOnScroll, initNav, initToTop } from "./nav.js";
 import { initPricing } from "./pricing.js";
@@ -13,3 +14,5 @@ initTheme();
 initPricing();
 initSlider();
 initReveal();
+
+initApp();
