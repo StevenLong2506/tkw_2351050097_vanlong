@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <script>document.documentElement.classList.add('js');</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNest — Cửa hàng điện tử &amp; gia dụng chính hãng</title>
+    <meta name="description"
+        content="Mua sắm điện tử, gia dụng chính hãng, giao hàng nhanh toàn quốc, đổi trả trong 30 ngày.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+        integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./dist/output.css">
+
+    <script>
+        (function () {
+            const saved = localStorage.getItem('theme');
+            const dark = saved ? saved === 'dark' : window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.classList.toggle('dark', dark);
+        })();
+    </script>
+</head>
+
+<body>
+    <div id="nav-sentinel" aria-hidden="true" class="h-px w-full"></div>
+    <header class="sticky top-0 z-40 border-b border-line bg-surface/85 backdrop-blur">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4" aria-label="Điều hướng chính">
+
+            <!-- Logo dùng <a> vì nó ĐƯA NGƯỜI DÙNG ĐI ĐÂU ĐÓ -->
+            <a href="./index.html" class="flex items-center gap-2.5">
+                <span class="brand-mark">T</span>
+                <span class="brand-name">TechNest</span>
+            </a>
+
+            <!-- Menu desktop. Ẩn dưới lg — buổi 3 sẽ lo phần mobile. -->
+            <ul class="hidden items-center gap-8 text-sm font-medium lg:flex">
+                <li><a href="./index.html#san-pham" class="nav-link">Sản phẩm</a></li>
+                <li><a href="./index.html#uu-diem" class="nav-link">Vì sao chọn TechNest</a></li>
+                <li><a href="./index.html#cach-mua" class="nav-link">Cách mua hàng</a></li>
+                <li><a href="./index.html#slider-camnhan" class="nav-link">Cảm nhận</a></li>
+                <li><a href="./price.html" class="nav-link">Giá thành viên</a></li>
+                <li><a href="./index.html#cau-hoi" class="nav-link">Câu hỏi</a></li>
+                <li><a href="./contact.html" class="nav-link">Liên hệ</a></li>
+                <li><a href="./app.html" class="nav-link">Đơn hàng</a></li>
+            </ul>
+
+
+
+            <div class="flex items-center gap-2">
+                <button class="btn btn-ghost h-10 w-10 theme-toggle" id="nut-nen-toi" aria-pressed="false">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                    <i class="fa-solid fa-sun" aria-hidden="true"></i>
+                </button>
+                <a href="./index.html#san-pham" class="btn btn-primary hidden lg:inline-flex">Mua sắm ngay</a>
+
+                <!-- Nút hamburger dùng <button> vì nó THỰC HIỆN MỘT HÀNH ĐỘNG.
+             Markup có sẵn từ buổi 1; buổi 4 mới gắn JavaScript cho chạy. -->
+                <button type="button" class="btn btn-ghost w-10 h-10 lg:hidden" aria-expanded="false"
+                    aria-controls="nav-mobile" aria-label="Mở menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu mobile: khung có sẵn, chưa mở được. Buổi 4 xử lý. -->
+        <div id="nav-mobile" class="hidden border-t border-line px-5 pb-6 pt-4 lg:hidden">
+            <ul class="flex flex-col gap-1 text-base font-medium">
+                <li><a href="./index.html#san-pham" class="nav-link-mobile">Sản phẩm</a></li>
+                <li><a href="./index.html#uu-diem" class="nav-link-mobile">Vì sao chọn
+                        TechNest</a></li>
+                <li><a href="./index.html#cach-mua" class="nav-link-mobile">Cách mua hàng</a>
+                </li>
+                <li><a href="./index.html#slider-camnhan" class="nav-link-mobile">Cảm nhận</a>
+                </li>
+                <li><a href="./price.html" class="nav-link-mobile">Giá thành viên</a>
+                </li>
+                <li><a href="./index.html#cau-hoi" class="nav-link-mobile">Câu hỏi</a>
+                </li>
+                <li><a href="./contact.html" class="nav-link-mobile">Liên hệ</a>
+                </li>
+                <li><a href="./app.html" class="nav-link-mobile">Đơn hàng</a>
+                </li>
+            </ul>
+            <a href="./index.html#san-pham" class="btn btn-primary btn-lg mt-4 w-full">Mua sắm ngay</a>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="section" aria-labelledby="contact-title">
+            <div class="max-w-2xl">
+                <p class="eyebrow">Liên hệ</p>
+                <h1 id="contact-title" class="mt-4 text-4xl font-extrabold sm:text-5xl lg:text-6xl">Cần hỗ trợ? <br> Chúng
+                    tôi ở đây</h1>
+                <p class="section-lead">Gửi câu hỏi về đơn hàng, bảo hành hay hợp tác — đội ngũ TechNest
+                    phản hồi trong vòng 24 giờ làm việc.</p>
+            </div>
+
+            <div class="mt-14 grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+                <form class="card" method="post" action="#">
+                    <div class="grid gap-5 sm:grid-cols-2">
+                        <div class="sm:col-span-2">
+                            <label class="field-label" for="ho-ten">Họ và tên
+                                <span class="field-required" aria-hidden="true">*</span></label>
+                            <input class="field-input" id="ho-ten" name="hoTen" type="text" required autocomplete="name"
+                                aria-describedby="ho-ten-error" />
+                            <p class="field-error" id="ho-ten-error" role="alert"></p>
+                        </div>
+
+                        <div>
+                            <label class="field-label" for="dien-thoai">Số điện thoại
+                                <span class="field-required" aria-hidden="true">*</span></label>
+                            <input class="field-input" id="dien-thoai" name="dienThoai" type="tel" required
+                                pattern="0[0-9]{9}" autocomplete="tel" inputmode="numeric"
+                                aria-describedby="dien-thoai-hint dien-thoai-error" />
+                            <p class="field-hint" id="dien-thoai-hint">Chúng tôi gọi qua số này, không nhắn tin quảng
+                                cáo.</p>
+                            <p class="field-error" id="dien-thoai-error" role="alert"></p>
+                        </div>
+
+                        <div>
+                            <label class="field-label" for="email">Email
+                                <span class="field-required" aria-hidden="true">*</span></label>
+                            <input class="field-input" id="email" name="email" type="email" required
+                                autocomplete="email" aria-describedby="email-error" />
+                            <p class="field-error" id="email-error" role="alert"></p>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="field-label" for="chu-de">Bạn cần hỗ trợ về</label>
+                            <select class="field-input" id="chu-de" name="chuDe">
+                                <option value="don-hang">Hỏi về đơn hàng</option>
+                                <option value="doi-tra">Đổi trả / bảo hành</option>
+                                <option value="hop-tac">Hợp tác kinh doanh</option>
+                                <option value="khac">Góp ý khác</option>
+                            </select>
+                        </div>
+
+                        <div class="sm:col-span-2">
+                            <label class="field-label" for="noi-dung">Nội dung
+                                <span class="field-required" aria-hidden="true">*</span></label>
+                            <textarea class="field-input" id="noi-dung" name="noiDung" rows="5" required
+                                aria-describedby="noi-dung-error"></textarea>
+                            <p class="field-error" id="noi-dung-error" role="alert"></p>
+                        </div>
+
+                        <div class="flex items-start gap-2.5 sm:col-span-2">
+                            <input
+                                class="mt-1 h-4 w-4 shrink-0 rounded border-line text-brand-600 focus:outline-2 focus:outline-offset-2 focus:outline-brand-600"
+                                id="dong-y" name="dongY" type="checkbox" required aria-describedby="dong-y-error" />
+                            <label class="text-sm text-muted" for="dong-y">
+                                Tôi đồng ý để TechNest liên hệ qua số điện thoại hoặc email đã cung cấp.<span class="field-required" aria-hidden="true">*</span>
+                            </label>
+                        </div>
+                        <p class="field-error sm:col-span-2" id="dong-y-error" role="alert"></p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg mt-6 w-full sm:w-auto">Gửi yêu cầu</button>
+                </form>
+
+                <div class="flex flex-col gap-8">
+                    <div class="card">
+                        <h2 class="font-display text-lg font-bold">Thông tin liên hệ</h2>
+                        <dl class="mt-4 space-y-3 text-sm">
+                            <div>
+                                <dt class="text-muted">Hotline</dt>
+                                <dd><a href="tel:+842873001234" class="info-value">028 7300 1234</a></dd>
+                            </div>
+                            <div>
+                                <dt class="text-muted">Email</dt>
+                                <dd><a href="mailto:hotro@technest.vn"
+                                        class="info-value">hotro@technest.vn</a>
+                                </dd>
+                            </div>
+                            <div>
+                                <dt class="text-muted">Giờ làm việc</dt>
+                                <dd class="info-value">8:00 - 21:00, Thứ 2 - Chủ Nhật</dd>
+                            </div>
+                            <div>
+                                <dt class="text-muted">Địa chỉ</dt>
+                                <dd class="info-value">97 Võ Văn Tần, TP.HCM</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <div class="card">
+                        <h2 class="font-display text-lg font-bold">Sau khi gửi thì sao?</h2>
+                        <p class="mt-3 text-sm text-muted leading-relaxed">
+                            Đội ngũ TechNest phản hồi trong vòng 24 giờ làm việc qua email hoặc số điện thoại bạn để
+                            lại. Với yêu cầu đổi trả/bảo hành, vui lòng chuẩn bị sẵn mã đơn hàng để được hỗ trợ nhanh
+                            hơn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-line bg-surface">
+        <div class="mx-auto w-full max-w-6xl px-5 py-12 lg:py-16">
+            <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="footer-nav-container">
+                    <a href="./index.html" class="flex items-center gap-3">
+                        <span
+                            class="brand-mark">T</span>
+                        <span class="brand-name">TechNest</span>
+                    </a>
+                    <p class="text-sm leading-relaxed text-muted">Cửa hàng điện tử và gia dụng chính hãng, giao
+                        hàng toàn quốc.</p>
+                </div>
+
+                <nav class=".footer-nav-container" aria-labelledby="footer-sp">
+                    <h2 class="footer-heading" id="footer-sp">Sản phẩm</h2>
+                    <ul class="footer-nav">
+                        <li><a href="./index.html#san-pham" class="effect-footer">Sản phẩm nổi bật</a></li>
+                        <li><a href="./price.html" class="effect-footer">Giá thành viên</a></li>
+                        <li><a href="./index.html#uu-diem" class="effect-footer">Vì sao chọn TechNest</a></li>
+                    </ul>
+                </nav>
+
+                <nav class=".footer-nav-container" aria-labelledby="footer-ht">
+                    <h2 class="footer-heading" id="footer-ht">Hỗ trợ</h2>
+                    <ul class="footer-nav">
+                        <li><a href="tel:+842873001234" class="info-value">028 7300 1234</a></li>
+                        <li><a href="mailto:hotro@technest.vn" class="effect-footer">hotro@technest.vn</a></li>
+                    </ul>
+                </nav>
+
+                <div class="flex flex-col gap-3 text-xs text-muted">
+                    <h2 class="footer-heading">Địa chỉ</h2>
+                    <address class="footer-nav not-italic">
+                        97 Võ Văn Tần TP.HCM
+                    </address>
+                </div>
+
+            </div>
+            <p class="flex justify-center text-muted mt-8">© 2026 TechNest. Bài thực hành môn Thiết kế Web.</p>
+        </div>
+
+    </footer>
+
+    <button type="button" id="nut-len-dau" class="to-top" aria-label="Lên đầu trang">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </button>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

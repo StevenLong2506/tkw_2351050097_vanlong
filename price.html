@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thành viên — TechNest</title>
+  <meta name="description"
+    content="Đăng ký thành viên TechNest để nhận ưu đãi vận chuyển, tích điểm và hoàn tiền cho mỗi đơn hàng.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+    integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./dist/output.css">
+
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const dark = saved ? saved === 'dark' : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle('dark', dark);
+    })();
+  </script>
+</head>
+
+<body>
+  <div id="nav-sentinel" aria-hidden="true" class="h-px w-full"></div>
+  <header class="sticky top-0 z-40 border-b border-line bg-surface/85 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4" aria-label="Điều hướng chính">
+
+      <!-- Logo dùng <a> vì nó ĐƯA NGƯỜI DÙNG ĐI ĐÂU ĐÓ -->
+      <a href="./index.html" class="flex items-center gap-2.5">
+        <span class="brand-mark">T</span>
+        <span class="brand-name">TechNest</span>
+      </a>
+
+      <!-- Menu desktop. Ẩn dưới lg — buổi 3 sẽ lo phần mobile. -->
+      <ul class="hidden items-center gap-8 text-sm font-medium lg:flex">
+        <li><a href="./index.html#san-pham" class="nav-link">Sản phẩm</a></li>
+        <li><a href="./index.html#uu-diem" class="nav-link">Vì sao chọn TechNest</a></li>
+        <li><a href="./index.html#cach-mua" class="nav-link">Cách mua hàng</a></li>
+        <li><a href="./index.html#slider-camnhan" class="nav-link">Cảm nhận</a></li>
+        <li><a href="./price.html" class="nav-link">Giá thành viên</a></li>
+        <li><a href="./index.html#cau-hoi" class="nav-link">Câu hỏi</a></li>
+        <li><a href="./contact.html" class="nav-link">Liên hệ</a></li>
+      </ul>
+
+
+
+      <div class="flex items-center gap-2">
+        <button class="btn btn-ghost h-10 w-10 theme-toggle" id="nut-nen-toi" aria-pressed="false">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+          <i class="fa-solid fa-sun" aria-hidden="true"></i>
+        </button>
+        <a href="./index.html#san-pham" class="btn btn-primary hidden lg:inline-flex">Mua sắm ngay</a>
+
+        <!-- Nút hamburger dùng <button> vì nó THỰC HIỆN MỘT HÀNH ĐỘNG.
+             Markup có sẵn từ buổi 1; buổi 4 mới gắn JavaScript cho chạy. -->
+        <button type="button" class="btn btn-ghost w-10 h-10 lg:hidden" aria-expanded="false" aria-controls="nav-mobile"
+          aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Menu mobile: khung có sẵn, chưa mở được. Buổi 4 xử lý. -->
+    <div id="nav-mobile" class="hidden border-t border-line px-5 pb-6 pt-4 lg:hidden">
+      <ul class="flex flex-col gap-1 text-base font-medium">
+        <li><a href="./index.html#san-pham" class="nav-link-mobile">Sản phẩm</a>
+        </li>
+        <li><a href="./index.html#uu-diem" class="nav-link-mobile">Vì sao chọn
+            TechNest</a></li>
+        <li><a href="./index.html#cach-mua" class="nav-link-mobile">Cách mua
+                hàng</a>
+        </li>
+        <li><a href="./index.html#slider-camnhan"
+                class="nav-link-mobile">Cảm nhận</a>
+        </li>
+        <li><a href="./price.html" class="block rounded-lg px-3 py-2.5 bg-surface-alt text-brand-600">Giá thành
+                viên</a>
+        </li>
+        <li><a href="./index.html#cau-hoi" class="nav-link-mobile">Câu hỏi</a>
+        </li>
+        <li><a href="./contact.html" class="nav-link-mobile">Liên hệ</a>
+        </li>
+      </ul>
+      <a href="./index.html#san-pham" class="btn btn-primary btn-lg mt-4 w-full">Mua sắm ngay</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="thanh-vien" aria-labelledby="gia-title" class="section">
+      <div>
+        <p class="eyebrow">Chương trình thành viên</p>
+        <h1 id="gia-title" class="mt-4 text-4xl font-extrabold sm:text-5xl lg:text-6xl">Mua sắm nhiều hơn, ưu đãi
+          nhiều hơn</h1>
+        <p class="section-lead">Nâng hạng bất cứ lúc nào. Càng mua sắm nhiều, quyền lợi càng lớn.</p>
+      </div>
+
+      <div class="mt-8 flex items-center gap-3">
+        <span class="text-sm font-medium text-muted">Theo tháng</span>
+        <button type="button" id="cong-tac-gia" role="switch" aria-checked="false"
+          class="group relative h-7 w-12 shrink-0 rounded-pill bg-line transition-colors aria-checked:bg-brand-600">
+          <span
+            class="absolute left-1 top-1 h-5 w-5 rounded-full bg-surface shadow-sm transition-transform group-aria-checked:translate-x-5"></span>
+        </button>
+        <span class="text-sm font-medium text-muted">Theo năm</span>
+        <span class="badge bg-brand-50 text-brand-700">Tiết kiệm ~30%</span>
+      </div>
+
+      <ul class="grid mt-14 items-stretch gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <li class="card card-price">
+          <h3 class="price-title">Thành viên Bạc</h3>
+          <p class="price-subtitle">Miễn phí khi đăng ký tài khoản.</p>
+          <p class="price-money">0 ₫<span class="price-span">/mãi mãi</span>
+          </p>
+          <ul class="price-perks">
+            <li class="price-content">Tích điểm mỗi đơn hàng</li>
+            <li class="price-content">Ưu đãi riêng dịp sinh nhật</li>
+            <li class="price-content">Theo dõi đơn hàng dễ dàng</li>
+          </ul>
+          <a href="#" class="mt-3 btn btn-primary btn-sm md:btn-lg">Đăng ký miễn phí</a>
+        </li>
+
+        <li class="card card-price">
+          <h3 class="price-title">Thành viên Vàng</h3>
+          <p class="price-subtitle">Dành cho khách mua sắm thường xuyên.</p>
+          <p class="price-money"><span data-price data-monthly="12000" data-yearly="99000">99.000 ₫</span><span
+              class="price-span" data-price-unit>/năm</span>
+          </p>
+          <ul class="price-perks">
+            <li class="price-content">Mọi quyền lợi của Bạc</li>
+            <li class="price-content">Miễn phí vận chuyển mọi đơn hàng</li>
+            <li class="price-content">Hoàn 2% giá trị đơn hàng</li>
+          </ul>
+          <a href="#" class="mt-3 btn btn-primary btn-sm md:btn-lg">Nâng cấp Vàng</a>
+        </li>
+
+        <li class="card card-price">
+          <h3 class="price-title">Thành viên Kim Cương</h3>
+          <p class="price-subtitle">Cho khách hàng thân thiết nhất.</p>
+          <p class="price-money">
+            <span data-price data-monthly="35000" data-yearly="299000">299.000 ₫</span>
+            <span class="price-span" data-price-unit>/năm</span>
+          </p>
+          <ul class="price-perks">
+            <li class="price-content">Mọi quyền lợi của Vàng</li>
+            <li class="price-content">Ưu tiên hỗ trợ 24/7</li>
+            <li class="price-content">Hoàn 5% giá trị đơn hàng</li>
+          </ul>
+          <a href="#" class="mt-3 btn btn-primary btn-sm md:btn-lg">Nâng cấp Kim Cương</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-surface">
+    <div class="mx-auto w-full max-w-6xl px-5 py-12 lg:py-16">
+      <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="footer-nav-container">
+          <a href="./index.html" class="flex items-center gap-3">
+            <span
+              class="brand-mark">T</span>
+            <span class="brand-name">TechNest</span>
+          </a>
+          <p class="text-sm leading-relaxed text-muted">Cửa hàng điện tử và gia dụng chính hãng, giao
+            hàng toàn quốc.</p>
+        </div>
+
+        <nav class=".footer-nav-container" aria-labelledby="footer-sp">
+          <h2 class="footer-heading" id="footer-sp">Sản phẩm</h2>
+          <ul class="footer-nav">
+            <li><a href="./index.html#san-pham" class="effect-footer">Sản phẩm nổi bật</a></li>
+            <li><a href="./price.html" class="effect-footer">Giá thành viên</a></li>
+            <li><a href="./index.html#uu-diem" class="effect-footer">Vì sao chọn TechNest</a></li>
+          </ul>
+        </nav>
+
+        <nav class=".footer-nav-container" aria-labelledby="footer-ht">
+          <h2 class="footer-heading" id="footer-ht">Hỗ trợ</h2>
+          <ul class="footer-nav">
+            <li><a href="tel:+842873001234" class="info-value">028 7300 1234</a></li>
+            <li><a href="mailto:hotro@technest.vn" class="effect-footer">hotro@technest.vn</a></li>
+          </ul>
+        </nav>
+
+        <div class="flex flex-col gap-3 text-xs text-muted">
+          <h2 class="footer-heading">Địa chỉ</h2>
+          <address class="footer-nav not-italic">
+            97 Võ Văn Tần TP.HCM
+          </address>
+        </div>
+
+
+      </div>
+      <p class="flex justify-center text-muted mt-8">© 2026 TechNest. Bài thực hành môn Thiết kế Web.</p>
+    </div>
+
+  </footer>
+
+  <button type="button" id="nut-len-dau" class="to-top" aria-label="Lên đầu trang">
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+      stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+  <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>

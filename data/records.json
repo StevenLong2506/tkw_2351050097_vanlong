@@ -1,0 +1,72 @@
+[
+    {
+        "id": "1",
+        "category": "Tai nghe",
+        "status": "da-chot",
+        "amount": 37696000,
+        "date":	"2026-07-26"
+    },
+    {
+        "id": "2",
+        "category": "Loa bluetooth",
+        "status": "cho-xu-ly",
+        "amount": 15500000,
+        "date":	"2026-07-25"
+    },
+    {
+        "id": "3",
+        "category": "Nồi chiên không dầu",
+        "status": "da-chot",
+        "amount": 8900000,
+        "date":	"2026-07-22"
+    },
+    {
+        "id": "4",
+        "category": "Máy hút bụi",
+        "status": "huy",
+        "amount": 12450000,
+        "date":	"2026-07-26"
+    },
+    {
+        "id": "5",
+        "category": "Bàn phím cơ",
+        "status": "cho-xu-ly",
+        "amount": 3400000,
+        "date":	"2026-07-26"
+    },
+    {
+        "id": "6",
+        "category": "Chuột không dây",
+        "status": "da-chot",
+        "amount": 1250000,
+        "date":	"2026-07-26"
+    },
+    {
+        "id": "7",
+        "category": "Màn hình",
+        "status": "da-chot",
+        "amount": 42000000,
+        "date":	"2026-07-26"
+    },
+    {
+        "id": "8",
+        "category": "Tai nghe",
+        "status": "huy",
+        "amount": 2100000,
+        "date":	"2026-07-26"
+    },
+    {
+        "id": "9",
+        "category": "Máy lọc không khí",
+        "status": "cho-xu-ly",
+        "amount": 18500000,
+        "date":	"2026-07-26"
+    },
+    {
+        "id": "10",
+        "category": "Loa bluetooth",
+        "status": "da-chot",
+        "amount": 5900000,
+        "date":	"2026-07-26"
+    }
+]
